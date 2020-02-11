@@ -1,0 +1,26 @@
+<h2><%= @task.title %></h2>
+
+<h3><%= @task.details %></h3>
+
+
+<% if @task.completed %>
+  <li>
+    <p><i class="far fa-check-circle"></i> This task is completed</p>
+  </li>
+  <% else %>
+    <li>
+      <p><i class="far fa-circle"></i> This task is not completed yet</p>
+    </li>
+<% end %>
+
+<%= link_to tasks_path do %>
+  <p><i class="fas fa-undo-alt"></i> Back to list</p>
+<% end %>
+
+<%= link_to task_edit_path(params[:id]) do %>
+<p><i class="fas fa-edit"></i> Edit post</p>
+<% end %>
+
+<%= link_to task_path(params[:id]), method: :delete do  %>
+<p><i class="fas fa-trash-alt"></i> Delete task</p>
+<% end %>
